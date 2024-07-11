@@ -3,7 +3,7 @@
  */
 package fwrp.connection;
 
-import static org.junit.jupiter.api.Assertions.*;
+//import static org.junit.jupiter.api.Assertions.*;
 import java.sql.*;
 import org.junit.jupiter.api.Test;
 

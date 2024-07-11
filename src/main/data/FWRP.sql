@@ -7,7 +7,7 @@ CREATE TABLE Users (
     username VARCHAR(100) NOT NULL,
     password VARCHAR(255) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
-    phone INT,
+    phone INT NOT NULL,
     user_type VARCHAR(50) 
     CHECK (user_type IN ('Retailer', 'Consumer', 'Charitable Organization')) NOT NULL
 );
