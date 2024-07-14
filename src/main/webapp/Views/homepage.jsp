@@ -1,14 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Homepage</title>
+<script type="text/javascript">
+        function checkLogout() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('logout') === 'success') {
+                alert('Logout Successful');
+            }
+        }
+    </script>
 </head>
-<body>
-	<h1> Welcome to the Food Waste Reduction Platform</h1>
-	<div class="container">
+<body onload="checkLogout()">
+    <header>
+        <h1>Welcome to the Food Waste Reduction Platform</h1>
+    </header>
+    <div class="container">
         <section class="introduction">
             <h2>About Us</h2>
             <p>
@@ -21,20 +31,27 @@
                 those in need. Join us in our efforts to promote food sustainability and support your community.
             </p>
         </section>
-        <section class="buttons">
-			<%
-				String email = (String) session.getAttribute("email");
-				if (email != null) {
-			%>
-			<form action="logout" method="post">
-				<button type="submit">Logout</button>
-			</form>
-			<% } else { %>
-			<form action="login.jsp" method="get">
-				<button type="submit">Login</button>
-			</form>
-			<% } %>
-		</section>
-	</div>
+        <section class="welcome">
+            <%
+                String name = (String) session.getAttribute("name");
+                if (name != null) {
+            %>
+                <p id="welcome-message">Welcome, <%= name %>!</p>
+                <form action="myAccount.jsp" method="get" style="display:inline;">
+                    <button type="submit">MyAccount</button>
+                </form>
+                <form action="logout" method="post" style="display:inline;">
+                    <button type="submit">Logout</button>
+                </form>
+            <% } else { %>
+                <form action="login.jsp" method="get" style="display:inline;">
+                    <button type="submit">Login</button>
+                </form>
+            <% } %>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Food Waste Reduction Platform. 8288 Section 040 Group 2.</p>
+    </footer>
 </body>
 </html>
