@@ -13,7 +13,7 @@ public class User {
 	private String email;
 	private int phone;
 	private String userType;
-	
+	private String gender;
 	
 	public void setUserName(String userName) {
 		this.userName = userName;
