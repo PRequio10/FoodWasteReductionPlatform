@@ -47,7 +47,7 @@
                 <form action="login.jsp" method="get" style="display:inline;">
                     <button type="submit">Login</button>
                 </form>
-            <% } %>
+            <% } %> 
         </section>
     </div>
     <footer>
