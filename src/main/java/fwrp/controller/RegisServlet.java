@@ -11,7 +11,7 @@ import fwrp.model.User;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/registerUser")
+@WebServlet("/registration.jsp")
 public class RegisServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -54,7 +54,7 @@ public class RegisServlet extends HttpServlet {
             request.getSession().setAttribute("username", username);
 
           
-            response.sendRedirect("Views/registration-success.jsp");
+            response.sendRedirect("Views/homepage.jsp");
         } catch (SQLException e) {
             
             throw new ServletException("Error inserting user", e);

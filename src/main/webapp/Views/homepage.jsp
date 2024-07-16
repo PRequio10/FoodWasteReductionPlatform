@@ -16,7 +16,6 @@
 </script>
 </head>
 <body onload="checkLogout()">
-<<<<<<< HEAD
     <header>
         <h1>Welcome to the Food Waste Reduction Platform</h1>
     </header>
@@ -55,45 +54,5 @@
     <footer>
         <p>&copy; 2024 Food Waste Reduction Platform. 8288 Section 040 Group 2.</p>
     </footer>
-=======
-<header>
-    <h1>Welcome to the Food Waste Reduction Platform</h1>
-</header>
-<div class="container">
-    <section class="introduction">
-        <h2>About Us</h2>
-        <p>
-            The Food Waste Reduction Platform is dedicated to minimizing food waste by connecting retailers, consumers, 
-            and charitable organizations. Our platform allows retailers to list surplus food items, consumers to find 
-            discounted food, and charitable organizations to claim donations.
-        </p>
-        <p>
-            Our mission is to create a sustainable environment by reducing food waste and making surplus food available to 
-            those in need. Join us in our efforts to promote food sustainability and support your community.
-        </p>
-    </section>
-    <section class="welcome">
-        <% 
-            String username = (String) session.getAttribute("name");
-            if (name != null) {
-        %>
-            <p id="welcome-message">Welcome, <%= name %>!</p>
-            <form action="myAccount.jsp" method="get" style="display:inline;">
-                <button type="submit">My Account</button>
-            </form>
-            <form action="logout" method="post" style="display:inline;">
-                <button type="submit">Logout</button>
-            </form>
-        <% } else { %>
-            <form action="login.jsp" method="get" style="display:inline;">
-                <button type="submit">Login</button>
-            </form>
-        <% } %>
-    </section>
-</div>
-<footer>
-    <p>&copy; 2024 Food Waste Reduction Platform. 8288 Section 040 Group 2.</p>
-</footer>
->>>>>>> 073af45e60ace316ce4f948fd735a8ecb48cc591
 </body>
 </html>
