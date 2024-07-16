@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="login.css">
 <title>Login</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
 		<input type="password" id="password" name="password" required><br><br>
 		<button type="submit">Login</button>
 	</form>
-	<form action="register.jsp" method="get">
+	<form action="registration.jsp" method="get">
 		<button type="submit">Register</button>
 	</form>
 

@@ -9,4 +9,14 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>registration</display-name>
+    <servlet-name>registration</servlet-name>
+    <servlet-class>fwrp.controller.registration</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>registration</servlet-name>
+    <url-pattern>/registration</url-pattern>
+  </servlet-mapping>
 </web-app>
