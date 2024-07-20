@@ -3,6 +3,11 @@ package fwrp.connection;
 import java.sql.*;
 import java.util.Properties;
 
+/**
+ * JDBC in singleton pattern.
+ * 
+ * @author John Philip William Requio
+ */
 public class DBConnection {
 	
 	private static DBConnection dbConnect;

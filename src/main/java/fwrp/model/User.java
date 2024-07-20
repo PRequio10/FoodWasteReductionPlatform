@@ -3,7 +3,7 @@ package fwrp.model;
 /**
  * This model represent the user of the application.
  * 
- * @author
+ * @author John Philip William Requio
  */
 public class User {
 	
