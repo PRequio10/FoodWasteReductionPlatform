@@ -1,13 +1,11 @@
 package fwrp.controller;
 
-import jakarta.servlet.ServletConfig;
+//import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import fwrp.connection.DBConnection;
-import fwrp.dao.UserDAO;
 import fwrp.dao.UserDAOImpl;
 import fwrp.model.User;
 import java.io.IOException;
