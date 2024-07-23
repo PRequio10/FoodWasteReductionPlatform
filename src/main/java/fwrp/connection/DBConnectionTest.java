@@ -19,7 +19,6 @@ class DBConnectionTest {
 		DBConnection instance = DBConnection.getInstance();
 		Connection dbConn = instance.getConnection();
 		
-		assertNotNull(dbConn, "Connection established");
-		
+		assertNotNull(dbConn);
 	}
 }
