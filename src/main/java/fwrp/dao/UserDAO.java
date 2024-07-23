@@ -1,6 +1,6 @@
 package fwrp.dao;
-import java.sql.SQLException;
 
+import java.sql.SQLException;
 import fwrp.model.User;
 
 public interface UserDAO {
