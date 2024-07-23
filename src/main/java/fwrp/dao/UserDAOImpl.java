@@ -34,7 +34,28 @@ public class UserDAOImpl implements UserDAO{
 		}
 
     }
-		
+	
+	@Override
+	public User validateUser(String email, String password) throws SQLException {
+        String query = "SELECT user_id, username, password, email, phone, user_type FROM Users WHERE email = ? AND password = ?";
+        try (PreparedStatement preparedStatement = dbConn.prepareStatement(query)) {
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, password);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("user_id")); // Use 'user_id' instead of 'id'
+                user.setUserName(rs.getString("username"));
+                user.setPassWord(rs.getString("password"));
+                user.setEmail(rs.getString("email"));
+                user.setPhone(rs.getInt("phone"));
+                user.setUserType(rs.getString("user_type"));
+                return user;
+            }
+        }
+        return null;
+    }
 }
 
 

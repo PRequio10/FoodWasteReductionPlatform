@@ -6,13 +6,22 @@ package fwrp.model;
  * @author John Philip William Requio
  */
 public class User {
-	
+	private int id;
 	private String userName;
 	
 	private String passWord;
 	private String email;
 	private int phone;
 	private String userType;
+	
+	 public int getId() {
+	        return id;
+	    }
+
+	    public void setId(int id) {
+	        this.id = id;
+	    }
+	
 	
 	public void setUserName(String userName) {
 		this.userName = userName;
