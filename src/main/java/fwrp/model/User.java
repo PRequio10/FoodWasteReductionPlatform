@@ -3,16 +3,28 @@ package fwrp.model;
 /**
  * This model represent the user of the application.
  * 
- * @author
+ * @author John Philip William Requio
  */
 public class User {
-	
+	private int id;
 	private String userName;
 	
 	private String passWord;
 	private String email;
 	private int phone;
 	private String userType;
+<<<<<<< HEAD
+=======
+	
+	 public int getId() {
+	        return id;
+	    }
+
+	    public void setId(int id) {
+	        this.id = id;
+	    }
+	
+>>>>>>> 4ef6a66756c70312f56b32041568f99dbf84f0a8
 	
 	public void setUserName(String userName) {
 		this.userName = userName;

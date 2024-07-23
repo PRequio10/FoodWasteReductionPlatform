@@ -11,3 +11,12 @@ CREATE TABLE Users (
     user_type VARCHAR(50) 
     CHECK (user_type IN ('Retailer', 'Consumer', 'Charitable Organization')) NOT NULL
 );
+
+CREATE TABLE SurplusFood (
+	foodID INT PRIMARY KEY auto_increment,
+    foodName VARCHAR(100) NOT NULL,
+    quatity INT NOT NULL,
+    price INT NOT NULL,
+    expDate date NOT NULL,
+    remarks VARCHAR(100) NULL
+);
