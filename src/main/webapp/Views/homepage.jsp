@@ -1,18 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" session="false" %>
+    pageEncoding="ISO-8859-1" session="true" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Homepage</title>
+<link rel="stylesheet" type="text/css" href="homepage.css">
 <script type="text/javascript">
-        function checkLogout() {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('logout') === 'success') {
-                alert('Logout Successful');
-            }
+    function checkLogout() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('logout') === 'success') {
+            alert('Logout Successful');
         }
-    </script>
+    }
+</script>
 </head>
 <body onload="checkLogout()">
     <header>
@@ -47,7 +48,7 @@
                 <form action="login.jsp" method="get" style="display:inline;">
                     <button type="submit">Login</button>
                 </form>
-            <% } %>
+            <% } %> 
         </section>
     </div>
     <footer>

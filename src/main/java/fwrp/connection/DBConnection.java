@@ -2,9 +2,6 @@ package fwrp.connection;
 
 import java.sql.*;
 import java.util.Properties;
-import java.io.InputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
 
 public class DBConnection {
 	
@@ -14,18 +11,16 @@ public class DBConnection {
 	
 	private DBConnection() throws SQLException{
 		try {
-			InputStream input = new FileInputStream("src/main/data/database.properties");
-			props.load(input);
 			
-			String driver = props.getProperty("driver");
-			String url = props.getProperty("url");
-			String user = props.getProperty("user");
-			String pass = props.getProperty("pass");
+			String driver = "com.mysql.cj.jdbc.Driver";
+			String url = "jdbc:mysql://localhost:3306/FWRP";
+			String user = "root";
+			String pass = "0030588D0c3!";
 			
 			Class.forName(driver);
 			conn = DriverManager.getConnection(url,user,pass);
 		}
-		catch (IOException | ClassNotFoundException ex) {
+		catch (ClassNotFoundException ex) {
 			System.out.println(ex.getMessage());
 		}
 	}
