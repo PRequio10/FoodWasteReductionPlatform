@@ -3,6 +3,11 @@ package fwrp.connection;
 import java.sql.*;
 import java.util.Properties;
 
+/**
+ * JDBC in singleton pattern.
+ * 
+ * @author John Philip William Requio
+ */
 public class DBConnection {
 	
 	private static DBConnection dbConnect;
@@ -15,7 +20,7 @@ public class DBConnection {
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String url = "jdbc:mysql://localhost:3306/FWRP";
 			String user = "root";
-			String pass = "Shanmysql!";
+			String pass = "Requio.10!";
 			
 			Class.forName(driver);
 			conn = DriverManager.getConnection(url,user,pass);
