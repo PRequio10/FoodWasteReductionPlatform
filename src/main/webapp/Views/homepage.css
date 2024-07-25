@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-<<<<<<< HEAD
+
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
@@ -55,7 +55,7 @@ button[type="submit"]:hover {
 }
 
 footer {
-    background-color: #333;
+    background-color: #4CAF50;
     color: #fff;
     text-align: center;
     padding: 10px 0;
@@ -68,17 +68,6 @@ footer {
     .container {
         width: 90%;
     }
-}@charset "ISO-8859-1";
-=======
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-}
 
 h1 {
     color: #333;
@@ -87,4 +76,5 @@ h1 {
 p {
     color: #666;
 }
->>>>>>> 4ef6a66756c70312f56b32041568f99dbf84f0a8
+
+}

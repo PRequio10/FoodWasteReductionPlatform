@@ -1,9 +1,8 @@
 package fwrp.controller;
 
-<<<<<<< HEAD
+
 //import jakarta.servlet.ServletConfig;
-=======
->>>>>>> 4ef6a66756c70312f56b32041568f99dbf84f0a8
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
