@@ -28,7 +28,7 @@
                     <h2>Manage Inventory</h2>
                     
                     <%-- Add new items to inventory --%>
-                    <form action="add_inventory" method="POST">
+                    <form action="<%= request.getContextPath() %>/add_inventory" method="POST">
 					    <label for="item_name">Item Name:</label>
 					    <input type="text" id="item_name" name="item_name" required>
 					    
@@ -50,7 +50,7 @@
 					</form>
                     
                     <%-- Update Inventory using item ID --%>
-                    <form action="update_inventory.php" method="POST">
+                    <form action= "<%= request.getContextPath() %>/update_inventory" method="POST">
                         <label for="update_item_ID">Item ID:</label>
                         <input type="text" id="update_item_ID" name="update_item_ID" required>
                         
