@@ -34,7 +34,7 @@
                 </form>
             </aside>
             
-            <<div class="content">
+            <div class="content">
                 <h2>Current Inventory</h2>
                 <div id="current_inventory">
                     <table>
