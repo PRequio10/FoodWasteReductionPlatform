@@ -7,15 +7,12 @@ package fwrp.model;
  */
 public class User {
 	
-	private String userName;
 	private String passWord;
 	private String email;
 	private int phone;
 	private String userType;
-	
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+
+
 	public String getPassWord() {
 		return passWord;
 	}
