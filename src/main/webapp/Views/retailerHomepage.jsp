@@ -17,7 +17,7 @@
         <nav>
             <ul>
                 <li>"User Name"</li>
-                <li><a href="logout.php">Logout</a></li>
+                <li><a href="homepage.jsp">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -35,6 +35,9 @@
 					    <label for="quantity">Quantity:</label>
 					    <input type="number" id="quantity" name="quantity" required>
 					    
+					    <label for="price">Price:</label>
+					    <input type="number" id="price" name="price" step="0.01" required>
+					    
 					    <label for="expiry_date">Expiry Date:</label>
 					    <input type="date" id="expiry_date" name="expiry_date" required>
 					    
@@ -44,6 +47,7 @@
 					        <option value="Surplus">Surplus</option>
 					        <option value="Claimed">Claimed</option>
 					        <option value="Purchased">Purchased</option>
+					        <option value="Discount">Discount</option>
 					    </select>
 					    
 					    <button type="submit">Add Item</button>
@@ -57,6 +61,9 @@
                         <label for="update_quantity">New Quantity:</label>
                         <input type="number" id="update_quantity" name="update_quantity" required>
                         
+                        <label for="update_price">New Price:</label>
+                        <input type="number" id="update_price" name="update_price" step="0.01" required>
+                        
                         <label for="update_expiry_date">New Expiry Date:</label>
                         <input type="date" id="update_expiry_date" name="update_expiry_date" required>
                         
@@ -66,6 +73,7 @@
                             <option value="Surplus">Surplus</option>
                             <option value="Claimed">Claimed</option>
                             <option value="Purchased">Purchased</option>
+                            <option value="Discount">Discount</option>
                         </select>
                         
                         <button type="submit">Update Item</button>
@@ -74,17 +82,17 @@
 
                 <section>
                     <h2>List Surplus Food Items</h2>
-                    <form action="list_surplus.php" method="POST">
-                        <label for="surplus_item_ID">Surplus Item ID:</label>
+                    <form action="none yet" method="POST">
+                        <label for="surplus_item_ID">Item ID:</label>
                         <input type="text" id="surplus_item_ID" name="surplus_item_ID" required>
                         
                         <label for="listing_type">Listing Type:</label>
                         <select id="listing_type" name="listing_type" required>
                             <option value="donation">Donation</option>
-                            <option value="sale">Sale at Discounted Price</option>
+                            <option value="sale">Discount</option>
                         </select>
                         
-                        <button type="submit">List Surplus Item</button>
+                        <button type="submit">List Item as Surplus</button>
                     </form>
                 </section>
 
@@ -126,11 +134,13 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Item Name</th>
+                                <th>Item ID</th>
+                                <th>Item Name</th>                                
                                 <th>Quantity</th>
                                 <th>Expiration Date</th>
                                 <th>Status</th>
-                                <th>Item ID</th>
+                                <th>Item Price/Quantity</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -139,11 +149,12 @@
 
                                 for (InventoryItem item : items) {
                                     out.println("<tr>");
-                                    out.println("<td>" + item.getItemName() + "</td>");
-                                    out.println("<td>" + item.getQuantity() + "</td>");
+                                    out.println("<td>" + item.getItemId() + "</td>");
+                                    out.println("<td>" + item.getItemName() + "</td>");                                    
+                                    out.println("<td>" + item.getItemId() + "</td>");
                                     out.println("<td>" + item.getExpirationDate() + "</td>");
                                     out.println("<td>" + item.getStatus() + "</td>");
-                                    out.println("<td>" + item.getItemId() + "</td>");
+                                    out.println("<td>" + item.getItemPrice() + "</td>");
                                     out.println("</tr>");
                                 }
                             %>

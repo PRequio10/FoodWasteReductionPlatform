@@ -19,7 +19,7 @@
         <nav>
             <ul>
                 <li>"User Name"</li>
-                <li><a href="logout.php">Logout</a></li>
+                <li><a href="homepage.jsp">Logout</a></li>
             </ul>
         </nav>
     </header>

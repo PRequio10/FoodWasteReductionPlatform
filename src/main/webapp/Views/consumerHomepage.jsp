@@ -15,11 +15,11 @@
 
 <body>
     <header>
-        <h1>Retailer Dashboard</h1>
+        <h1>Consumer Dashboard</h1>
         <nav>
             <ul>
                 <li><a href="retailer_dashboard.html">Dashboard</a></li>
-                <li><a href="logout.php">Logout</a></li>
+                <li><a href="homepage.jsp">Logout</a></li>
             </ul>
         </nav>
     </header>
