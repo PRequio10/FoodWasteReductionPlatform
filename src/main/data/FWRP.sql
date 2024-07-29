@@ -12,15 +12,6 @@ CREATE TABLE Users (
     CHECK (user_type IN ('Retailer', 'Consumer', 'Charitable Organization')) NOT NULL
 );
 
-CREATE TABLE SurplusFood (
-	foodID INT PRIMARY KEY auto_increment,
-    foodName VARCHAR(100) NOT NULL,
-    quatity INT NOT NULL,
-    price INT NOT NULL,
-    expDate date NOT NULL,
-    remarks VARCHAR(100) NULL
-);
-
 CREATE TABLE Inventory (
     item_id INT  PRIMARY KEY auto_increment,
     retailer_id INT,
