@@ -1,7 +1,6 @@
 package fwrp.connection;
 
 import java.sql.*;
-import java.util.Properties;
 
 /**
  * JDBC in singleton pattern.
