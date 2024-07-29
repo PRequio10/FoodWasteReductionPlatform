@@ -12,7 +12,6 @@ public class DBConnection {
 	
 	private static DBConnection dbConnect;
 	private static Connection conn;
-	Properties props = new Properties();
 	
 	private DBConnection() throws SQLException{
 		try {
