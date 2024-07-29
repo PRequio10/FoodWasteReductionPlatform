@@ -20,3 +20,13 @@ CREATE TABLE SurplusFood (
     expDate date NOT NULL,
     remarks VARCHAR(100) NULL
 );
+
+CREATE TABLE Inventory (
+    item_id INT  PRIMARY KEY auto_increment,
+    retailer_id INT,
+    item_name VARCHAR(100) NOT NULL,
+    quantity INT NOT NULL,
+    expiration_date DATE NOT NULL,
+    status VARCHAR(50) DEFAULT 'Available' CHECK (status IN ('Available', 'Surplus', 'Claimed', 'Purchased')),
+    REFERENCES Users(user_id)
+);

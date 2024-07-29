@@ -15,11 +15,11 @@
 
 <body>
     <header>
-        <h1>Retailer Dashboard</h1>
+        <h1>Consumer Dashboard</h1>
         <nav>
             <ul>
-                <li><a href="retailer_dashboard.html">Dashboard</a></li>
-                <li><a href="logout.php">Logout</a></li>
+                <li>"Username"</li>
+                <li><a href="homepage.jsp">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -27,11 +27,9 @@
         <div class="container">
             <aside class="sidebar">
                 <form action="claim_food.php" method="POST">
-                    <label for="item_name">Item Name:</label>
+                    <label for="item_name">Item ID:</label>
                     <input type="text" id="item_name" name="item_name" required>
                     
-                    <label for="quantity">Quantity:</label>
-                    <input type="number" id="quantity" name="quantity" required>
                     
                     <button type="submit">Purchase</button>
                 </form>
