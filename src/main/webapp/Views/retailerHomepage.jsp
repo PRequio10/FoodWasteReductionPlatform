@@ -151,7 +151,7 @@
                                     out.println("<tr>");
                                     out.println("<td>" + item.getItemId() + "</td>");
                                     out.println("<td>" + item.getItemName() + "</td>");                                    
-                                    out.println("<td>" + item.getItemId() + "</td>");
+                                    out.println("<td>" + item.getQuantity() + "</td>");
                                     out.println("<td>" + item.getExpirationDate() + "</td>");
                                     out.println("<td>" + item.getStatus() + "</td>");
                                     out.println("<td>" + item.getItemPrice() + "</td>");
