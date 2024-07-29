@@ -79,11 +79,11 @@ public class InventoryDAOImpl implements InventoryDAO {
 	    }
 	    return items;
 	}
-	//retrieves all inventory items available for purchase to show in the customerHomepage
+	//retrieves all inventory items available for purchase to show in the cunsumerHomepage
 	@Override
 	public List<InventoryItem> getConsumerItems() throws SQLException {
 	    List<InventoryItem> items = new ArrayList<>();
-	    String sql = "SELECT * FROM Inventory WHERE status = 'Purchased'";
+	    String sql = "SELECT * FROM Inventory WHERE status = 'Available'";
 	    try (Statement stmt = connection.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
 	        while (rs.next()) {
 	            InventoryItem item = new InventoryItem();
@@ -98,6 +98,32 @@ public class InventoryDAOImpl implements InventoryDAO {
 	    }
 	    return items;
 	}
+	
+	//Logic for consumer claiming items via item ID
+	@Override
+	public void purchaseInventoryItem(InventoryItem item) throws SQLException {
+	    String sql = "UPDATE Inventory SET status = ? WHERE item_id = ?";
+	    try (PreparedStatement ps = connection.prepareStatement(sql)) {
+	        ps.setString(1, "Purchased"); // Set the status directly as a string
+	        ps.setInt(2, item.getItemId());
+	        ps.executeUpdate();
+	    }
+	}
+	
+	//Logic for charity to claim surplus item via item ID
+	@Override
+	public void claimInventoryItem(InventoryItem item) throws SQLException {
+	    String sql = "UPDATE Inventory SET status = ? WHERE item_id = ?";
+	    try (PreparedStatement ps = connection.prepareStatement(sql)) {
+	        ps.setString(1, "Purchased"); // Set the status directly as a string
+	        ps.setInt(2, item.getItemId());
+	        ps.executeUpdate();
+	    }
+	}
+	
+	
+	
+	
     
 	//retrieves all inventory items that will be expired within 2 weeks from the current date to show in the retailerHomepage
 	@Override
@@ -122,4 +148,7 @@ public class InventoryDAOImpl implements InventoryDAO {
         }
         return items;
     }
+	
+	
+	
 }

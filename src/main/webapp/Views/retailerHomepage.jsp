@@ -80,21 +80,6 @@
                     </form>
                 </section>
 
-                <section>
-                    <h2>List Surplus Food Items</h2>
-                    <form action="none yet" method="POST">
-                        <label for="surplus_item_ID">Item ID:</label>
-                        <input type="text" id="surplus_item_ID" name="surplus_item_ID" required>
-                        
-                        <label for="listing_type">Listing Type:</label>
-                        <select id="listing_type" name="listing_type" required>
-                            <option value="donation">Donation</option>
-                            <option value="sale">Discount</option>
-                        </select>
-                        
-                        <button type="submit">List Item as Surplus</button>
-                    </form>
-                </section>
 
                 <section>
                     <h2>Surplus Food Identification</h2>

@@ -29,10 +29,7 @@
                 <form action="claim_food.php" method="POST">
                     <label for="item_name">Item Name:</label>
                     <input type="text" id="item_name" name="item_name" required>
-                    
-                    <label for="quantity">Quantity:</label>
-                    <input type="number" id="quantity" name="quantity" required>
-                    
+                                        
                     <button type="submit">Claim Item</button>
                 </form>
             </aside>
