@@ -99,13 +99,12 @@ public class InventoryDAOImpl implements InventoryDAO {
 	    return items;
 	}
 	
-	//Logic for consumer claiming items via item ID
+	//Logic for consumer purchasing items via item ID
 	@Override
 	public void purchaseInventoryItem(InventoryItem item) throws SQLException {
-	    String sql = "UPDATE Inventory SET status = ? WHERE item_id = ?";
+	    String sql = "UPDATE Inventory SET status = 'Purchased' WHERE item_id = ?";
 	    try (PreparedStatement ps = connection.prepareStatement(sql)) {
-	        ps.setString(1, "Purchased"); // Set the status directly as a string
-	        ps.setInt(2, item.getItemId());
+	    	ps.setInt(1, item.getItemId());
 	        ps.executeUpdate();
 	    }
 	}
@@ -113,10 +112,9 @@ public class InventoryDAOImpl implements InventoryDAO {
 	//Logic for charity to claim surplus item via item ID
 	@Override
 	public void claimInventoryItem(InventoryItem item) throws SQLException {
-	    String sql = "UPDATE Inventory SET status = ? WHERE item_id = ?";
+	    String sql = "UPDATE Inventory SET status = 'Claimed' WHERE item_id = ?";
 	    try (PreparedStatement ps = connection.prepareStatement(sql)) {
-	        ps.setString(1, "Purchased"); // Set the status directly as a string
-	        ps.setInt(2, item.getItemId());
+	    	ps.setInt(1, item.getItemId());
 	        ps.executeUpdate();
 	    }
 	}

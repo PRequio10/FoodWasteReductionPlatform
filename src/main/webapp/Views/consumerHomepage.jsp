@@ -3,6 +3,7 @@
 <%@ page import="fwrp.dao.InventoryDAOImpl" %>
 <%@ page import="fwrp.model.InventoryItem" %>
 <%@ page import="java.util.List" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,5 +73,4 @@
     <footer>
         <p>&copy; 2024 Food Waste Reduction Platform</p>
     </footer>
-</body>
-</html>
+

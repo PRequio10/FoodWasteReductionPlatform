@@ -50,7 +50,6 @@
                         <%
                             InventoryDAO inventoryDAO = new InventoryDAOImpl();
                             List<InventoryItem> items = inventoryDAO.getCharityItems();
-
                             for (InventoryItem item : items) {
                                 out.println("<tr>");
                                 out.println("<td>" + item.getItemName() + "</td>");
