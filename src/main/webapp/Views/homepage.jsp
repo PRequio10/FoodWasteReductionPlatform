@@ -1,26 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" session="true" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" session="true" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Homepage</title>
-<link rel="stylesheet" type="text/css" href="homepage.css">
-<script type="text/javascript">
-    function checkLogout() {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('logout') === 'success') {
-            alert('Logout Successful');
+    <meta charset="ISO-8859-1">
+    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" href="homepage.css">
+    <script type="text/javascript">
+        function checkLogout() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('logout') === 'success') {
+                alert('Logout Successful');
+            }
         }
-    }
-</script>
+    </script>
 </head>
 <body onload="checkLogout()">
     <header>
         <h1>Welcome to the Food Waste Reduction Platform</h1>
     </header>
-    <div class="container">
-        <section class="introduction">
+    <main class="container">
+        <div class="introduction">
             <h2>About Us</h2>
             <p>
                 The Food Waste Reduction Platform is dedicated to minimizing food waste by connecting retailers, consumers, 
@@ -31,8 +31,8 @@
                 Our mission is to create a sustainable environment by reducing food waste and making surplus food available to 
                 those in need. Join us in our efforts to promote food sustainability and support your community.
             </p>
-        </section>
-        <section class="welcome">
+        </div>
+        <div class="welcome">
             <%
                 String name = (String) session.getAttribute("name");
                 if (name != null) {
@@ -49,8 +49,8 @@
                     <button type="submit">Login</button>
                 </form>
             <% } %> 
-        </section>
-    </div>
+        </div>
+    </main>
     <footer>
         <p>&copy; 2024 Food Waste Reduction Platform. 8288 Section 040 Group 2.</p>
     </footer>

@@ -6,15 +6,17 @@ package fwrp.model;
  * @author John Philip William Requio
  */
 public class User {
+
 	private int id;
 	private String userName;
+
 	
 	private String passWord;
 	private String email;
 	private int phone;
 	private String userType;
 
-	
+
 	 public int getId() {
 	        return id;
 	    }
@@ -29,6 +31,7 @@ public class User {
 	public String getUserName() {
 		return userName;
 	}
+
 	public String getPassWord() {
 		return passWord;
 	}
