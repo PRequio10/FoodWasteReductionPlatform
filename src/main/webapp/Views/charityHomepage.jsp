@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
+=======
+<%@ page import="fwrp.dao.InventoryDAO" %>
+<%@ page import="fwrp.dao.InventoryDAOImpl" %>
+<%@ page import="fwrp.model.InventoryItem" %>
+<%@ page import="java.util.List" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+>>>>>>> 01eeb0b870563ce5874da5465be64361727b622b
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +25,11 @@
         <nav>
             <ul>
                 <li>"User Name"</li>
+<<<<<<< HEAD
                 <li><a href="logout.php">Logout</a></li>
+=======
+                <li><a href="homepage.jsp">Logout</a></li>
+>>>>>>> 01eeb0b870563ce5874da5465be64361727b622b
             </ul>
         </nav>
     </header>
@@ -26,15 +39,23 @@
                 <form action="claim_food.php" method="POST">
                     <label for="item_name">Item Name:</label>
                     <input type="text" id="item_name" name="item_name" required>
+<<<<<<< HEAD
                     
                     <label for="quantity">Quantity:</label>
                     <input type="number" id="quantity" name="quantity" required>
                     
+=======
+                                        
+>>>>>>> 01eeb0b870563ce5874da5465be64361727b622b
                     <button type="submit">Claim Item</button>
                 </form>
             </aside>
             
+<<<<<<< HEAD
             <div class="content">
+=======
+            <<div class="content">
+>>>>>>> 01eeb0b870563ce5874da5465be64361727b622b
                 <h2>Current Inventory</h2>
                 <div id="current_inventory">
                     <table>
@@ -48,7 +69,24 @@
                             </tr>
                         </thead>
                         <tbody>
+<<<<<<< HEAD
                             <%-- TABLE FOR CURRENT INVENTORY --%>
+=======
+                            <%
+                                InventoryDAO inventoryDAO = new InventoryDAOImpl();
+                                List<InventoryItem> items = inventoryDAO.getCharityItems();
+
+                                for (InventoryItem item : items) {
+                                    out.println("<tr>");
+                                    out.println("<td>" + item.getItemName() + "</td>");
+                                    out.println("<td>" + item.getQuantity() + "</td>");
+                                    out.println("<td>" + item.getExpirationDate() + "</td>");
+                                    out.println("<td>" + item.getStatus() + "</td>");
+                                    out.println("<td>" + item.getItemId() + "</td>");
+                                    out.println("</tr>");
+                                }
+                            %>
+>>>>>>> 01eeb0b870563ce5874da5465be64361727b622b
                         </tbody>
                     </table>
                 </div>
@@ -62,5 +100,8 @@
     </footer>
 
 </body>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 01eeb0b870563ce5874da5465be64361727b622b
 </html>

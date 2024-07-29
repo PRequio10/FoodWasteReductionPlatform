@@ -7,7 +7,26 @@ CREATE TABLE Users (
     username VARCHAR(100) NOT NULL,
     password VARCHAR(255) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
-    phone INT,
+    phone INT NOT NULL,
     user_type VARCHAR(50) 
     CHECK (user_type IN ('Retailer', 'Consumer', 'Charitable Organization')) NOT NULL
+);
+
+CREATE TABLE SurplusFood (
+	foodID INT PRIMARY KEY auto_increment,
+    foodName VARCHAR(100) NOT NULL,
+    quatity INT NOT NULL,
+    price INT NOT NULL,
+    expDate date NOT NULL,
+    remarks VARCHAR(100) NULL
+);
+
+CREATE TABLE Inventory (
+    item_id INT  PRIMARY KEY auto_increment,
+    retailer_id INT,
+    item_name VARCHAR(100) NOT NULL,
+    quantity INT NOT NULL,
+    expiration_date DATE NOT NULL,
+    status VARCHAR(50) DEFAULT 'Available' CHECK (status IN ('Available', 'Surplus', 'Claimed', 'Purchased')),
+    REFERENCES Users(user_id)
 );

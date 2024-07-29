@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
+=======
+<%@ page import="fwrp.dao.InventoryDAO" %>
+<%@ page import="fwrp.dao.InventoryDAOImpl" %>
+<%@ page import="fwrp.model.InventoryItem" %>
+<%@ page import="java.util.List" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+>>>>>>> 01eeb0b870563ce5874da5465be64361727b622b
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,11 +21,19 @@
 
 <body>
     <header>
+<<<<<<< HEAD
         <h1>Retailer Dashboard</h1>
         <nav>
             <ul>
                 <li><a href="retailer_dashboard.html">Dashboard</a></li>
                 <li><a href="logout.php">Logout</a></li>
+=======
+        <h1>Consumer Dashboard</h1>
+        <nav>
+            <ul>
+                <li>"Username"</li>
+                <li><a href="homepage.jsp">Logout</a></li>
+>>>>>>> 01eeb0b870563ce5874da5465be64361727b622b
             </ul>
         </nav>
     </header>
@@ -24,11 +41,17 @@
         <div class="container">
             <aside class="sidebar">
                 <form action="claim_food.php" method="POST">
+<<<<<<< HEAD
                     <label for="item_name">Item Name:</label>
                     <input type="text" id="item_name" name="item_name" required>
                     
                     <label for="quantity">Quantity:</label>
                     <input type="number" id="quantity" name="quantity" required>
+=======
+                    <label for="item_name">Item ID:</label>
+                    <input type="text" id="item_name" name="item_name" required>
+                    
+>>>>>>> 01eeb0b870563ce5874da5465be64361727b622b
                     
                     <button type="submit">Purchase</button>
                 </form>
@@ -48,7 +71,24 @@
                             </tr>
                         </thead>
                         <tbody>
+<<<<<<< HEAD
                             <%-- TABLE FOR CURRENT INVENTORY --%>
+=======
+                            <%
+                                InventoryDAO inventoryDAO = new InventoryDAOImpl();
+                                List<InventoryItem> items = inventoryDAO.getConsumerItems();
+
+                                for (InventoryItem item : items) {
+                                    out.println("<tr>");
+                                    out.println("<td>" + item.getItemName() + "</td>");
+                                    out.println("<td>" + item.getQuantity() + "</td>");
+                                    out.println("<td>" + item.getExpirationDate() + "</td>");
+                                    out.println("<td>" + item.getStatus() + "</td>");
+                                    out.println("<td>" + item.getItemId() + "</td>");
+                                    out.println("</tr>");
+                                }
+                            %>
+>>>>>>> 01eeb0b870563ce5874da5465be64361727b622b
                         </tbody>
                     </table>
                 </div>

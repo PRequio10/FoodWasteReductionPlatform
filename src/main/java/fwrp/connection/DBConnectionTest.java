@@ -8,7 +8,9 @@ import java.sql.*;
 import org.junit.jupiter.api.Test;
 
 /**
+ * JDBC unit testing.
  * 
+ * @author John Philip William Requio
  */
 class DBConnectionTest {
 
@@ -17,11 +19,6 @@ class DBConnectionTest {
 		DBConnection instance = DBConnection.getInstance();
 		Connection dbConn = instance.getConnection();
 		
-		if (dbConn != null) {
-			System.out.println("Database connection created");
-		} else {
-			System.out.println("Unable to create database connection");
-		}
+		assertNotNull(dbConn);
 	}
-
 }
