@@ -14,6 +14,10 @@ import org.junit.jupiter.api.Test;
  */
 class DBConnectionTest {
 
+	/**
+	 * Test of getInstance and getConnection method.
+	 * @throws SQLException
+	 */
 	@Test
 	void getConnectionTest() throws SQLException {
 		

@@ -15,8 +15,12 @@ import fwrp.model.User;
  */
 class UserDAOTest {
 
+	/**
+	 * Test of the insertUser method.
+	 * @throws SQLException
+	 */
 	@Test
-	void userDAOtest() throws SQLException {
+	void userInserttest() throws SQLException {
 		
 		User user = new User();
 		user.setUserName("testUName");
@@ -25,7 +29,15 @@ class UserDAOTest {
 		user.setPhone(658974123);
 		user.setUserType("Consumer");
 		
+		UserDAOImpl insert = new UserDAOImpl();
 		
+		try {
+			insert.insertUser(user);
+			assertNotNull(insert);
+			System.out.println("Successfully inserted user data.");
+		} catch (SQLException e) {
+			System.out.println("Failed to insert user date" + e.getMessage());
+		}
 		
 	}
 
