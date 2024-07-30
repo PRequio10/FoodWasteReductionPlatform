@@ -26,15 +26,15 @@
     <main>
         <div class="container">
             <aside class="sidebar">
-                <form action="claim_food.php" method="POST">
-                    <label for="item_name">Item Name:</label>
-                    <input type="text" id="item_name" name="item_name" required>
+                <form action ="<%= request.getContextPath() %>/claim_inventory" method="POST">
+                    <label for="item_id">Item ID:</label>
+                    <input type="text" id="item_id" name="item_id" required>
                                         
                     <button type="submit">Claim Item</button>
                 </form>
             </aside>
             
-            <<div class="content">
+            <div class="content">
                 <h2>Current Inventory</h2>
                 <div id="current_inventory">
                     <table>
