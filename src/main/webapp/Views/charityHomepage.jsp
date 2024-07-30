@@ -18,7 +18,7 @@
         <h1>Charity Dashboard</h1>
         <nav>
             <ul>
-                <li>"User Name"</li>
+                <li>Hello, <%= session.getAttribute("username") %>!</li> 
                 <li><a href="homepage.jsp">Logout</a></li>
             </ul>
         </nav>

@@ -17,5 +17,7 @@ public interface InventoryDAO {
 	 List<InventoryItem> getCharityItems() throws SQLException;
 	 List<InventoryItem> getConsumerItems() throws SQLException;
 	 List<InventoryItem> getSurplusFlagger() throws SQLException;
+	void purchaseInventoryItem(InventoryItem item) throws SQLException;
+	void claimInventoryItem(InventoryItem item) throws SQLException;
 
 }
