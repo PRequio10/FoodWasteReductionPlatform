@@ -25,6 +25,7 @@ public class InventoryDAOImpl implements InventoryDAO {
             ps.setString(4, item.getStatus());
             ps.setDouble(5, item.getItemPrice());
             ps.executeUpdate();
+            
         }
     }
     //updates inventory items in the database
@@ -99,27 +100,7 @@ public class InventoryDAOImpl implements InventoryDAO {
 	    return items;
 	}
 	
-	//Logic for consumer claiming items via item ID
-	@Override
-	public void purchaseInventoryItem(InventoryItem item) throws SQLException {
-	    String sql = "UPDATE Inventory SET status = ? WHERE item_id = ?";
-	    try (PreparedStatement ps = connection.prepareStatement(sql)) {
-	        ps.setString(1, "Purchased"); // Set the status directly as a string
-	        ps.setInt(2, item.getItemId());
-	        ps.executeUpdate();
-	    }
-	}
 	
-	//Logic for charity to claim surplus item via item ID
-	@Override
-	public void claimInventoryItem(InventoryItem item) throws SQLException {
-	    String sql = "UPDATE Inventory SET status = ? WHERE item_id = ?";
-	    try (PreparedStatement ps = connection.prepareStatement(sql)) {
-	        ps.setString(1, "Purchased"); // Set the status directly as a string
-	        ps.setInt(2, item.getItemId());
-	        ps.executeUpdate();
-	    }
-	}
 	
 	
 	
