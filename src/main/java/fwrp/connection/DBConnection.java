@@ -19,6 +19,7 @@ public class DBConnection {
 			String url = "jdbc:mysql://localhost:3306/FWRP";
 			String user = "root";
 			String pass = "Requio.10";
+
 			
 			Class.forName(driver);
 			conn = DriverManager.getConnection(url,user,pass);

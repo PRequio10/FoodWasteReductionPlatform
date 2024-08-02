@@ -13,6 +13,7 @@ public class User {
 	private String email;
 	private int phone;
 	private String userType;
+	private boolean isSubscribed;
 
 	
 	 public int getId() {
@@ -53,5 +54,13 @@ public class User {
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
+	
+	public boolean getIsSubscribed() {
+        return isSubscribed;
+    }
+
+    public void setIsSubscribed(boolean isSubscribed) {
+        this.isSubscribed = isSubscribed;
+    }
 	
 }

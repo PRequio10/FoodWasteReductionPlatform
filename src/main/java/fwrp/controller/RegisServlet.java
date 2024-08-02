@@ -40,7 +40,17 @@ public class RegisServlet extends HttpServlet {
         String num = request.getParameter("phone");
         int phone = Integer.parseInt(num);
         String userType = request.getParameter("user_type");
-
+        String subscribe = request.getParameter("subscribe");
+        boolean isSubscribed = false;
+        
+        if (subscribe!= null) {
+        	isSubscribed = true;
+        }
+        else {
+        	isSubscribed = false;
+        }
+        
+       
         // Create User object
         User user = new User();
         user.setUserName(username);
@@ -48,7 +58,8 @@ public class RegisServlet extends HttpServlet {
         user.setEmail(email);
         user.setPhone(phone);
         user.setUserType(userType);
-
+        user.setIsSubscribed(isSubscribed);
+        
         try {
         	userReg.insertUser(user);
             
