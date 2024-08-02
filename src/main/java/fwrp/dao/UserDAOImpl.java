@@ -20,13 +20,14 @@ public class UserDAOImpl implements UserDAO{
 	
 	@Override
 	public void insertUser(User user) throws SQLException {
-		String insertUser = "INSERT INTO Users (username, password, email, phone, user_type) VALUES (?, ?, ?, ?, ?)";
+		String insertUser = "INSERT INTO Users (username, password, email, phone, user_type, isSubscribed) VALUES (?, ?, ?, ?, ?, ?)";
 		try (PreparedStatement preparedStatement = dbConn.prepareStatement(insertUser)) {
             preparedStatement.setString(1, user.getUserName());
             preparedStatement.setString(2, user.getPassWord());
             preparedStatement.setString(3, user.getEmail());
             preparedStatement.setInt(4, user.getPhone());
             preparedStatement.setString(5, user.getUserType());
+            preparedStatement.setBoolean(6, user.getIsSubscribed());
             preparedStatement.executeUpdate();
         }
 		catch( SQLException ex) {

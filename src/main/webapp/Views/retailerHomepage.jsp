@@ -13,14 +13,15 @@
 </head>
 <body>
     <header>
-        <h1>Retailer Dashboard</h1>
-        <nav>
-            <ul>
-                <li>"User Name"</li>
-                <li><a href="homepage.jsp">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
+    <h1>Retailer Dashboard</h1>
+    <nav>
+        <ul>
+            <li>Hello, <%= session.getAttribute("username") %>!</li>
+            <li><a href="homepage.jsp">Logout</a></li>
+        </ul>
+    </nav>
+	</header>
+	
     <main>
         <div class="container">
             <aside class="sidebar">

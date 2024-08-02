@@ -39,7 +39,8 @@ public class LoginServlet extends HttpServlet {
             if (user != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-
+                session.setAttribute("username", user.getUserName());  // Store the username in the session
+                
                 String userType = user.getUserType();
                 if ("Retailer".equals(userType)) {
                     response.sendRedirect("Views/retailerHomepage.jsp");

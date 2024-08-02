@@ -25,6 +25,7 @@ public class InventoryDAOImpl implements InventoryDAO {
             ps.setString(4, item.getStatus());
             ps.setDouble(5, item.getItemPrice());
             ps.executeUpdate();
+            
         }
     }
     //updates inventory items in the database
@@ -99,6 +100,7 @@ public class InventoryDAOImpl implements InventoryDAO {
 	    return items;
 	}
 	
+
 	//Logic for consumer purchasing items via item ID
 	@Override
 	public void purchaseInventoryItem(InventoryItem item) throws SQLException {
@@ -118,6 +120,7 @@ public class InventoryDAOImpl implements InventoryDAO {
 	        ps.executeUpdate();
 	    }
 	}
+
 	
 	
 	

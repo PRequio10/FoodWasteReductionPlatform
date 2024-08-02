@@ -16,7 +16,7 @@
         <h1>Consumer Dashboard</h1>
         <nav>
             <ul>
-                <li>"Username"</li>
+                <li>Hello, <%= session.getAttribute("username") %>!</li>
                 <li><a href="homepage.jsp">Logout</a></li>
             </ul>
         </nav>
