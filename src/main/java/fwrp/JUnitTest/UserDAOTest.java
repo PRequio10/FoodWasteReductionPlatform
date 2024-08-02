@@ -40,5 +40,31 @@ class UserDAOTest {
 		}
 		
 	}
+	
+	/**
+	 * Test of the validateUser method.
+	 * @throws SQLException
+	 */
+	@Test
+	void validateUserTest() throws SQLException {
+		
+		User user = new User();
+		user.setUserName("testUName");
+		user.setPassWord("testPW");
+		user.setEmail("test@test.com");
+		user.setPhone(658974123);
+		user.setUserType("Consumer");
+		
+		UserDAOImpl insert = new UserDAOImpl();
+		
+		try {
+			insert.insertUser(user);
+			assertNotNull(insert);
+			System.out.println("Successfully inserted user data.");
+		} catch (SQLException e) {
+			System.out.println("Failed to insert user date" + e.getMessage());
+		}
+		
+	}
 
 }
