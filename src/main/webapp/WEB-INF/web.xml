@@ -29,4 +29,24 @@
     <servlet-name>SubscribeServlet</servlet-name>
     <url-pattern>/SubscribeServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateSubscriptionServlet</display-name>
+    <servlet-name>UpdateSubscriptionServlet</servlet-name>
+    <servlet-class>fwrp.controller.UpdateSubscriptionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateSubscriptionServlet</servlet-name>
+    <url-pattern>/UpdateSubscriptionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FeedbackServlet</display-name>
+    <servlet-name>FeedbackServlet</servlet-name>
+    <servlet-class>fwrp.controller.FeedbackServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FeedbackServlet</servlet-name>
+    <url-pattern>/FeedbackServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

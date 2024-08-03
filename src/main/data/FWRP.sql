@@ -14,6 +14,7 @@ CREATE TABLE Users (
     isSubscribed BOOLEAN DEFAULT FALSE 
 );
 
+DROP TABLE IF EXISTS SurplusFood;
 CREATE TABLE SurplusFood (
 	foodID INT PRIMARY KEY auto_increment,
     foodName VARCHAR(100) NOT NULL,
@@ -23,12 +24,21 @@ CREATE TABLE SurplusFood (
     remarks VARCHAR(100) NULL
 );
 
+DROP TABLE IF EXISTS Inventory;
 CREATE TABLE Inventory (
-    item_id INT  PRIMARY KEY auto_increment,
-    retailer_id INT,
+    item_id INT PRIMARY KEY AUTO_INCREMENT,
     item_name VARCHAR(100) NOT NULL,
     quantity INT NOT NULL,
     expiration_date DATE NOT NULL,
     status VARCHAR(50) DEFAULT 'Available' CHECK (status IN ('Available', 'Surplus', 'Claimed', 'Purchased')),
-    REFERENCES Users(user_id)
+    price DECIMAL(10, 2) NOT NULL
+);
+
+
+DROP TABLE IF EXISTS Feedback;
+CREATE TABLE Feedback (
+    feedback_id INT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(100) NOT NULL,
+    feedback TEXT NOT NULL,
+    feedback_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

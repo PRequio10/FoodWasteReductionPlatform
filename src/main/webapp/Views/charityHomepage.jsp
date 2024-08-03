@@ -19,6 +19,7 @@
         <nav>
             <ul>
                 <li>Hello, <%= session.getAttribute("username") %>!</li> 
+                <li><a href="feedbackPage.jsp">Submit feedback</a></li>
                 <li><a href="homepage.jsp">Logout</a></li>
             </ul>
         </nav>
