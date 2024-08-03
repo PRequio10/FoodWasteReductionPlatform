@@ -57,6 +57,32 @@ public class UserDAOImpl implements UserDAO{
         }
         return null;
     }
+	
+	
+	@Override
+	public int getUserCount(String username) throws SQLException {
+        String sql = "SELECT count FROM Users WHERE username = ?";
+        try (PreparedStatement ps = dbConn.prepareStatement(sql)) {
+            ps.setString(1, username);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("count");
+                } else {
+                    return 0; // or handle the case where the user does not exist
+                }
+            }
+        }
+    }
+	
+	
+	@Override
+	public void resetUserCount(String username) throws SQLException {
+	    String updateCount = "UPDATE Users SET count = 0 WHERE username = ?";
+	    try (PreparedStatement preparedStatement = dbConn.prepareStatement(updateCount)) {
+	        preparedStatement.setString(1, username);
+	        preparedStatement.executeUpdate();
+	    }
+	}
 }
 
 

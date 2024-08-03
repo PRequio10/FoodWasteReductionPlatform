@@ -31,7 +31,8 @@ CREATE TABLE Inventory (
     quantity INT NOT NULL,
     expiration_date DATE NOT NULL,
     status VARCHAR(50) DEFAULT 'Available' CHECK (status IN ('Available', 'Surplus', 'Claimed', 'Purchased')),
-    price DECIMAL(10, 2) NOT NULL
+    price DECIMAL(10, 2) NOT NULL,
+    count INT DEFAULT 0
 );
 
 

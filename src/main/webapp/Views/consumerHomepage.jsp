@@ -1,5 +1,7 @@
 <%@ page import="fwrp.dao.InventoryDAO" %>
 <%@ page import="fwrp.dao.InventoryDAOImpl" %>
+<%@ page import="fwrp.dao.UserDAO" %>
+<%@ page import="fwrp.dao.UserDAOImpl" %>
 <%@ page import="fwrp.model.InventoryItem" %>
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -30,6 +32,20 @@
                     <input type="text" id="item_id" name="item_id" required>
                     <button type="submit">Purchase</button>
                 </form>
+                
+                <form action="<%= request.getContextPath() %>/reset_count" method="POST">
+                 <%
+                    String un = (String) session.getAttribute("username");
+                    if (un != null) {
+                            UserDAO userDAO = new UserDAOImpl();
+                            int count = userDAO.getUserCount(un);
+                            out.println("<p>Retailer has added " + count + " new item/s</p>");
+                       }
+                %> <button type="Submit"> Clear </button>
+        		</form>
+                
+                
+                
             </aside>
             
             <div class="content">
