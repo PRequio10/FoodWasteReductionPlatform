@@ -14,16 +14,6 @@ CREATE TABLE Users (
     isSubscribed BOOLEAN DEFAULT FALSE 
 );
 
-DROP TABLE IF EXISTS SurplusFood;
-CREATE TABLE SurplusFood (
-	foodID INT PRIMARY KEY auto_increment,
-    foodName VARCHAR(100) NOT NULL,
-    quatity INT NOT NULL,
-    price INT NOT NULL,
-    expDate date NOT NULL,
-    remarks VARCHAR(100) NULL
-);
-
 DROP TABLE IF EXISTS Inventory;
 CREATE TABLE Inventory (
     item_id INT PRIMARY KEY AUTO_INCREMENT,
