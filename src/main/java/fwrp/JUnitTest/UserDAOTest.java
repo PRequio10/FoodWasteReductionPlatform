@@ -9,7 +9,7 @@ import fwrp.model.User;
 
 
 /**
- * DAO model unit testing.
+ * userDAO unit testing.
  * 
  * @author John Philip William Requio
  */

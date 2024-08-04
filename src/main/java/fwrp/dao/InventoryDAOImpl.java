@@ -7,14 +7,27 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * The class implementing the InventoryItem data access object (DAO).
+ *
+ * @author John Vincent Doce
+ */
 public class InventoryDAOImpl implements InventoryDAO {
     private Connection connection;
 
+    /**
+     * Class constructor to initialized 
+     * @throws SQLException
+     */
     public InventoryDAOImpl() throws SQLException {
         this.connection = DBConnection.getInstance().getConnection();
     }
-    //Adds inventory items to the database and adds +1 to the value of count column in Users Table
+    
+    /**
+     * Adds inventory items to the database and adds +1 to the value of count column in Users Table
+     * @throws SQLException
+     * 
+     */
     @Override
     public void addInventoryItem(InventoryItem item) throws SQLException {
         String sql = "INSERT INTO Inventory (item_name, quantity, expiration_date, status, price) VALUES (?, ?, ?, ?, ?)";
@@ -34,7 +47,12 @@ public class InventoryDAOImpl implements InventoryDAO {
             updateCountPs.executeUpdate();
         }
     }
-    //updates inventory items in the database
+
+    /**
+     * Updates inventory items in the database
+     * @throws SQLException
+     * 
+     */
     @Override
     public void updateInventoryItem(InventoryItem item) throws SQLException {
         String sql = "UPDATE Inventory SET quantity = ?, expiration_date = ?, status = ?, price = ? WHERE item_id = ?";
@@ -48,7 +66,11 @@ public class InventoryDAOImpl implements InventoryDAO {
         }
     }
 
-    //retrieves all inventory items to show in retailerHomepage, list updates automatically
+    /**
+     * Retrieves all inventory items to show in retailerHomepage, list updates automatically
+     * @throws SQLException
+     * 
+     */
     @Override
     public List<InventoryItem> getAllInventoryItems() throws SQLException {
         List<InventoryItem> items = new ArrayList<>();
@@ -68,7 +90,10 @@ public class InventoryDAOImpl implements InventoryDAO {
         return items;
     }
     
-    //retrieves all inventory items that are surplus to show in the charityHomepage
+    /**
+     * Retrieves all inventory items that are surplus to show in the charityHomepage
+     * @throws SQLException
+     */
 	@Override
 	public List<InventoryItem> getCharityItems() throws SQLException {
 	    List<InventoryItem> items = new ArrayList<>();
@@ -86,7 +111,11 @@ public class InventoryDAOImpl implements InventoryDAO {
 	    }
 	    return items;
 	}
-	//retrieves all inventory items available for purchase to show in the cunsumerHomepage
+	
+	/**
+	 * Retrieves all inventory items available for purchase to show in the cunsumerHomepage
+	 * @throws SQLException
+	 */
 	@Override
 	public List<InventoryItem> getConsumerItems() throws SQLException {
 	    List<InventoryItem> items = new ArrayList<>();
@@ -106,8 +135,10 @@ public class InventoryDAOImpl implements InventoryDAO {
 	    return items;
 	}
 	
-
-	//Logic for consumer purchasing items via item ID
+	/**
+	 * Logic for consumer purchasing items via item ID 
+	 * @throws SQLException
+	 */
 	@Override
 	public void purchaseInventoryItem(InventoryItem item) throws SQLException {
 	    String sql = "UPDATE Inventory SET status = 'Purchased' WHERE item_id = ?";
@@ -117,7 +148,10 @@ public class InventoryDAOImpl implements InventoryDAO {
 	    }
 	}
 	
-	//Logic for charity to claim surplus item via item ID
+	/**
+	 * Logic for charity to claim surplus item via item ID
+	 * @throws SQLException
+	 */
 	@Override
 	public void claimInventoryItem(InventoryItem item) throws SQLException {
 	    String sql = "UPDATE Inventory SET status = 'Claimed' WHERE item_id = ?";
@@ -127,7 +161,10 @@ public class InventoryDAOImpl implements InventoryDAO {
 	    }
 	}
 
-	//retrieves all inventory items that will be expired within 2 weeks from the current date to show in the retailerHomepage
+	/**
+	 * Retrieves all inventory items that will be expired within 2 weeks from the current date to show in the retailerHomepage
+	 * @throws SQLException
+	 */
 	@Override
     public List<InventoryItem> getSurplusFlagger() throws SQLException {
         List<InventoryItem> items = new ArrayList<>();
@@ -149,8 +186,5 @@ public class InventoryDAOImpl implements InventoryDAO {
             }
         }
         return items;
-    }
-	
-	
-	
+    }	
 }

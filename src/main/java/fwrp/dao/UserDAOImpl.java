@@ -1,11 +1,14 @@
 package fwrp.dao;
-
 import java.sql.*;
 import java.sql.Connection;
-
 import fwrp.connection.DBConnection;
 import fwrp.model.User;
 
+/**
+ * The class implementing the user data access object (DAO).
+ * 
+ * @author John Philip William Requio
+ */
 public class UserDAOImpl implements UserDAO{
 	
 	public static Connection dbConn = null;
@@ -18,6 +21,10 @@ public class UserDAOImpl implements UserDAO{
 		}
 	}
 	
+	/**
+	 * This method insert data to the users table in the database.
+	 * @throws SQLException
+	 */
 	@Override
 	public void insertUser(User user) throws SQLException {
 		String insertUser = "INSERT INTO Users (username, password, email, phone, user_type, isSubscribed) VALUES (?, ?, ?, ?, ?, ?)";
@@ -36,6 +43,10 @@ public class UserDAOImpl implements UserDAO{
 
     }
 	
+	/**
+	 * This method validates user's data for login authentication.
+	 * @throws SQLException
+	 */
 	@Override
 	public User validateUser(String email, String password) throws SQLException {
         String query = "SELECT user_id, username, password, email, phone, user_type FROM Users WHERE email = ? AND password = ?";
@@ -59,6 +70,11 @@ public class UserDAOImpl implements UserDAO{
     }
 	
 	
+	/**
+	 * This method counts user's login.
+	 * This is part of the notification feature.
+	 * @throws SQLException
+	 */
 	@Override
 	public int getUserCount(String username) throws SQLException {
         String sql = "SELECT count FROM Users WHERE username = ?";
@@ -74,7 +90,11 @@ public class UserDAOImpl implements UserDAO{
         }
     }
 	
-	
+	/**
+	 * This method reset the count of user's login.
+	 * This is part of the notification feature.
+	 * @throws SQLException
+	 */
 	@Override
 	public void resetUserCount(String username) throws SQLException {
 	    String updateCount = "UPDATE Users SET count = 0 WHERE username = ?";
