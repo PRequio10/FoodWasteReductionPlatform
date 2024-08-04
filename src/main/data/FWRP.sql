@@ -11,8 +11,23 @@ CREATE TABLE Users (
     phone INT,
     user_type VARCHAR(50) 
     CHECK (user_type IN ('Retailer', 'Consumer', 'Charitable Organization')) NOT NULL,
+<<<<<<< HEAD
     isSubscribed BOOLEAN DEFAULT FALSE,
     count INT DEFAULT 0
+=======
+    isSubscribed BOOLEAN DEFAULT FALSE 
+    count INT DEFAULT 0
+);
+
+DROP TABLE IF EXISTS SurplusFood;
+CREATE TABLE SurplusFood (
+	foodID INT PRIMARY KEY auto_increment,
+    foodName VARCHAR(100) NOT NULL,
+    quatity INT NOT NULL,
+    price INT NOT NULL,
+    expDate date NOT NULL,
+    remarks VARCHAR(100) NULL
+>>>>>>> 6b6983eaa652697adfe844d8b3882b60c0fe0b23
 );
 
 DROP TABLE IF EXISTS Inventory;
@@ -22,7 +37,12 @@ CREATE TABLE Inventory (
     quantity INT NOT NULL,
     expiration_date DATE NOT NULL,
     status VARCHAR(50) DEFAULT 'Available' CHECK (status IN ('Available', 'Surplus', 'Claimed', 'Purchased')),
+<<<<<<< HEAD
     price DECIMAL(10, 2) NOT NULL
+=======
+    price DECIMAL(10, 2) NOT NULL,
+    
+>>>>>>> 6b6983eaa652697adfe844d8b3882b60c0fe0b23
 );
 
 
