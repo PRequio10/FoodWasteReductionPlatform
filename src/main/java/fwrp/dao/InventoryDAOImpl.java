@@ -14,11 +14,15 @@ public class InventoryDAOImpl implements InventoryDAO {
     public InventoryDAOImpl() throws SQLException {
         this.connection = DBConnection.getInstance().getConnection();
     }
-    //Adds inventory items to the database
+    //Adds inventory items to the database and adds +1 to the value of count column in Users Table
     @Override
     public void addInventoryItem(InventoryItem item) throws SQLException {
         String sql = "INSERT INTO Inventory (item_name, quantity, expiration_date, status, price) VALUES (?, ?, ?, ?, ?)";
-        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+        String updateCountSql = "UPDATE Users SET count = count +1 WHERE user_type <> 'Retailer'";
+        try (
+        		PreparedStatement ps = connection.prepareStatement(sql);
+        		PreparedStatement updateCountPs = connection.prepareStatement(updateCountSql)
+        		) {
             ps.setString(1, item.getItemName());
             ps.setInt(2, item.getQuantity());
             ps.setDate(3, item.getExpirationDate());
@@ -26,6 +30,8 @@ public class InventoryDAOImpl implements InventoryDAO {
             ps.setDouble(5, item.getItemPrice());
             ps.executeUpdate();
             
+            //Adding +1 to count column in Users Table
+            updateCountPs.executeUpdate();
         }
     }
     //updates inventory items in the database
@@ -121,11 +127,6 @@ public class InventoryDAOImpl implements InventoryDAO {
 	    }
 	}
 
-	
-	
-	
-	
-    
 	//retrieves all inventory items that will be expired within 2 weeks from the current date to show in the retailerHomepage
 	@Override
     public List<InventoryItem> getSurplusFlagger() throws SQLException {
