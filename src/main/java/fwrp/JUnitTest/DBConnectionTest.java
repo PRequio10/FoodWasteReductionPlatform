@@ -1,11 +1,12 @@
 /**
  * 
  */
-package fwrp.connection;
-
+package fwrp.JUnitTest;
 import static org.junit.jupiter.api.Assertions.*;
 import java.sql.*;
 import org.junit.jupiter.api.Test;
+
+import fwrp.connection.DBConnection;
 
 /**
  * JDBC unit testing.
