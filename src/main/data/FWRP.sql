@@ -11,7 +11,8 @@ CREATE TABLE Users (
     phone INT,
     user_type VARCHAR(50) 
     CHECK (user_type IN ('Retailer', 'Consumer', 'Charitable Organization')) NOT NULL,
-    isSubscribed BOOLEAN DEFAULT FALSE 
+    isSubscribed BOOLEAN DEFAULT FALSE,
+    count INT DEFAULT 0
 );
 
 DROP TABLE IF EXISTS Inventory;
@@ -21,8 +22,7 @@ CREATE TABLE Inventory (
     quantity INT NOT NULL,
     expiration_date DATE NOT NULL,
     status VARCHAR(50) DEFAULT 'Available' CHECK (status IN ('Available', 'Surplus', 'Claimed', 'Purchased')),
-    price DECIMAL(10, 2) NOT NULL,
-    count INT DEFAULT 0
+    price DECIMAL(10, 2) NOT NULL
 );
 
 
