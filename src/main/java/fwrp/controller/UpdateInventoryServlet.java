@@ -13,12 +13,22 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 
+/**
+ * Servlet implementation class UpdateInventoryServlet.
+ * This servlet handles the updating of inventory items.
+ * @author John Vincent Doce
+ */
 @WebServlet("/update_inventory")
 public class UpdateInventoryServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private InventoryDAO inventoryDAO;
 
+    /**
+     * Initializes the servlet by setting up the InventoryDAO.
+     *
+     * @throws ServletException if an error occurs during initialization
+     */
     @Override
     public void init() throws ServletException {
         try {
@@ -28,6 +38,16 @@ public class UpdateInventoryServlet extends HttpServlet {
         }
     }
 
+
+    /**
+     * Handles the HTTP POST method.
+     * This method updates an inventory item based on the request parameters.
+     *
+     * @param request  the HttpServletRequest object that contains the request the client has made of the servlet
+     * @param response the HttpServletResponse object that contains the response the servlet sends to the client
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException      if an I/O error occurs
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

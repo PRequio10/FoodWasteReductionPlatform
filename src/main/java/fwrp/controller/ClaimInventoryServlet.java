@@ -12,12 +12,30 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * This servlet handles the claiming of an inventory item by a user.
+ * It processes the request to claim an item and updates the inventory accordingly.
+ * The servlet logs the received item ID, validates it, and performs the necessary
+ * database operations to mark the item as claimed.
+ * If successful, the user is redirected to the homepage with a success message.
+ * In case of errors, appropriate error messages are set and forwarded to the homepage.
+ * 
+ * @see HttpServlet
+ * @author John Vincent Doce
+ */
 @WebServlet("/claim_inventory")
 public class ClaimInventoryServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private InventoryDAO inventoryDAO;
 
+    /**
+     * Initializes the Inventory data access object (DAO).
+     * This method is called by the servlet container to indicate to a servlet
+     * that the servlet is being placed into service.
+     * 
+     * @throws ServletException if an SQL error occurs while initializing the DAO
+     */
     @Override
     public void init() throws ServletException {
         try {
@@ -26,7 +44,23 @@ public class ClaimInventoryServlet extends HttpServlet {
             throw new ServletException("Unable to initialize InventoryDAO", e);
         }
     }
-
+    
+    /**
+     * Processes POST requests to claim an inventory item.
+     * 
+     * The method performs the following steps:
+     * Log the received parameter.
+     * Handle the case where item_id is null or empty.
+     * Create InventoryItem object with the item ID.
+     * Claim the inventory item.
+     * Redirect to the homepage or inventory list with success message.
+     * 
+     * @param request the HttpServletRequest object that contains the request the client made to the servlet
+     * @param response the HttpServletResponse object that contains the response the servlet returns to the client
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     * 
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

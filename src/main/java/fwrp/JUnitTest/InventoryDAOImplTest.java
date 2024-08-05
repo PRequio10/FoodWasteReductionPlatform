@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.List;
-import fwrp.JUnitTest.*;
 import fwrp.dao.InventoryDAOImpl;
 import fwrp.model.InventoryItem;
 /**

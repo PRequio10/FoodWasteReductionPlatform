@@ -12,13 +12,22 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
-
+/**
+ * This servlet let the user add an item in the inventory.
+ * 
+ * @author John Vincent Doce
+ */
 @WebServlet("/add_inventory")
 public class AddInventoryServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private InventoryDAO inventoryDAO;
 
+    /**
+     * Initializes the Inventory data access object (DAO).
+     * 
+     * @throws ServletException if unable to initialize InventoryDAO
+     */
     @Override
     public void init() throws ServletException {
         try {
@@ -28,6 +37,16 @@ public class AddInventoryServlet extends HttpServlet {
         }
     }
 
+    /**
+     * Handles the HTTP POST request. Retrieves form parameters, creates an 
+     * InventoryItem object, adds the item to the inventory, and redirects to 
+     * the homepage to refresh the inventory list.
+     * 
+     * @param request the HttpServletRequest object that contains the request the client made of the servlet
+     * @param response the HttpServletResponse object that contains the response the servlet returns to the client
+     * @throws ServletException if an input or output error is detected when the servlet handles the request, or if an error occurs while adding the inventory item
+     * @throws IOException if the request for the POST could not be handled
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

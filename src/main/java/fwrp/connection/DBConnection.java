@@ -12,6 +12,10 @@ public class DBConnection {
 	private static DBConnection dbConnect;
 	private static Connection conn;
 	
+	/**
+	 * Class constructor - database information.
+	 * @throws SQLException
+	 */
 	private DBConnection() throws SQLException{
 		try {
 			
@@ -28,6 +32,11 @@ public class DBConnection {
 		}
 	}
 	
+	/**
+	 * DBConnection getInstance method - Singleton Double-Checked Locking
+	 * @return DBConnection
+	 * @throws SQLException
+	 */
 	public static synchronized DBConnection getInstance() throws SQLException {
 		DBConnection dbConn = DBConnection.dbConnect;
 		if (dbConn == null) {
@@ -41,6 +50,10 @@ public class DBConnection {
 		return dbConn;
 	}
 	
+	/**
+	 * getConnection method
+	 * @return
+	 */
 	public Connection getConnection() {
 		return conn;
 	}

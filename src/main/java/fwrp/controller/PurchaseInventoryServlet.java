@@ -12,12 +12,23 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Servlet implementation class PurchaseInventoryServlet
+ * Handles the purchasing of inventory items.
+ * @author John Vincent Doce
+ * 
+ */
 @WebServlet("/purchase_inventory")
 public class PurchaseInventoryServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private InventoryDAO inventoryDAO;
 
+    /**
+     * Initializes the servlet and sets up the InventoryDAO.
+     * 
+     * @throws ServletException if there is a problem initializing the InventoryDAO.
+     */
     @Override
     public void init() throws ServletException {
         try {
@@ -27,6 +38,14 @@ public class PurchaseInventoryServlet extends HttpServlet {
         }
     }
 
+    /**
+     * Handles POST requests to purchase an inventory item.
+     *
+     * @param request  the HttpServletRequest object that contains the request the client has made of the servlet
+     * @param response the HttpServletResponse object that contains the response the servlet sends to the client
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException      if an I/O error occurs
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

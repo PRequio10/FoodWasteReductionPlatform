@@ -12,10 +12,26 @@ import java.sql.SQLException;
 
 import fwrp.connection.DBConnection;
 
+/**
+ * FeedbackServlet is a servlet that handles the submission of feedback from users.
+ * It processes POST requests and saves the feedback to the database.
+ * If the email parameter is missing or empty, it redirects the user back to the feedback page with an error message.
+ * Otherwise, it saves the feedback to the database and redirects the user to the homepage.
+ * 
+ * @author Shanklein Maruzandi Maninang
+ */
 @WebServlet("/submitFeedback")
 public class FeedbackServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    /**
+     * Handles the HTTP POST request for submitting feedback.
+     *
+     * @param request  the HttpServletRequest object that contains the request the client has made of the servlet
+     * @param response the HttpServletResponse object that contains the response the servlet sends to the client
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an input or output error is detected when the servlet handles the request
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
