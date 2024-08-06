@@ -3,17 +3,26 @@ package fwrp.model;
 /**
  * This model represent the user of the application.
  * 
- * @author
+ * @author John Philip William Requio
  */
 public class User {
-	
+	private int id;
 	private String userName;
 	
 	private String passWord;
 	private String email;
 	private int phone;
 	private String userType;
+	private boolean isSubscribed;
+
 	
+	 public int getId() {
+	        return id;
+	    }
+
+	    public void setId(int id) {
+	        this.id = id;
+	    }
 	
 	public void setUserName(String userName) {
 		this.userName = userName;
@@ -45,5 +54,13 @@ public class User {
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
+	
+	public boolean getIsSubscribed() {
+        return isSubscribed;
+    }
+
+    public void setIsSubscribed(boolean isSubscribed) {
+        this.isSubscribed = isSubscribed;
+    }
 	
 }
